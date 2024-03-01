@@ -1,12 +1,12 @@
-.home-container {
+.homeContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Utiliza vh para el tamaño de la pantalla */
+    height: 100vh; 
     background-color: rgba(255, 255, 255, 0.8);
 }
 
-.columnDad1 {
+.homeContainerColumn1 {
     background-image: url("../../../public/Image2.jpg");
     height: 100%; 
     width: 33%;
@@ -15,7 +15,7 @@
     background-position: center;
 }
 
-.columnDad3 {
+.homeContainerColumn3 {
     background-image: url("../../../public/Image3.jpg");
     height: 100%; 
     width: 33%;
@@ -24,7 +24,7 @@
     background-position: center;
 }
 
-.columnDad2 {
+.homeContainerColumn2 {
     background-image: url("../../../public/Image1.jpg");
     background-size: cover;
     background-repeat: no-repeat;

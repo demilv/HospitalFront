@@ -1,0 +1,64 @@
+  .pacienteForm {
+    margin-top: 10px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: #312d31 0 0 10px inset;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height:720px;
+
+  }
+  
+  .pacienteFormInput {
+    width: 700px;
+    padding: 10px;
+    margin-bottom: 35px;
+    box-sizing: border-box;
+    border-radius: 5em; 
+  }
+
+  .pacienteFormTextarea{
+    margin-bottom: 70px;
+    width: 700px;
+    min-width: 300px;
+    min-height: 200px;
+    max-width: 1200px;
+    max-height: 500px;
+    resize: both;
+    overflow: auto;
+  }
+
+  .pacienteFormButton{
+    text-align: center;
+  border-radius: 1em;
+  border-style: none;  
+  appearance: none; 
+  box-sizing: border-box; 
+  box-shadow: #9915a4 0 -10px 5px inset;   
+  background-color: #FFFFFF;  
+  color: #000000;
+  font-size: 1.5rem;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  
+  padding: 1rem 1.3rem;
+  margin: 15px 0 60px;  
+  transition: all .3s;
+  }
+
+  .pacienteFormButton:hover {
+    background-color: #FFC229;
+    box-shadow: #FF6314 0 -6px 8px inset;
+    transform: scale(1.3);
+  }
+
+  .divFull{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .h3Full{
+    margin-top: 100px;
+  }

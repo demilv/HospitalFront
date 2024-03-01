@@ -1,10 +1,10 @@
 import { useState } from "react";
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
-import "./Contact.css";
+import "./Contacto.css";
 import { Link } from "react-router-dom";
 
-function Contact() {
+function Contacto() {
     const form = useRef();
 
     const sendEmail = (e) => {
@@ -73,12 +73,12 @@ function Contact() {
   };
   return (
     <>
-      <h1 className="contact_title">Contáctanos</h1>
-      <form className="contact_form" ref={form} onSubmit={submitForm}>
-        <div className="form-container">
-          <div className="form-data">
+      <h1 className="contactTitle">Contáctanos</h1>
+      <form className="contactForm" ref={form} onSubmit={submitForm}>
+        <div className="contactFormContainer">          
+          <div className="contactFormInputContainer">
             <input
-              className="input"
+              className="contactFormInput"
               type="text"
               name="nombre"
               value={name}
@@ -91,7 +91,7 @@ function Contact() {
             )}          
 
             <input
-              className="input"
+              className="contactFormInput"
               type="email"
               name="email"
               value={email}
@@ -102,9 +102,10 @@ function Contact() {
             {email !== "" && !patterns.email.test(email) && (
               <span style={{ color: "orange" }}>{messages.email}</span>
             )}
-
+          </div>
+          <div className="contactFormTextareaContainer">
             <textarea
-              className="textarea"
+              className="contactFormTextarea"
               name="mensaje"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
@@ -113,12 +114,11 @@ function Contact() {
               placeholder="Escriba aquí su mensaje"
               required
             ></textarea>
-              
-          </div>
+          </div>    
 
-          <div className="div_confirm">
+          <div className="contactFormDivconfirm">
             <button
-              className="button"
+              className="contactFormButton"
               type="submit"
               onClick={(ev) => {
                 submitForm(ev);
@@ -142,4 +142,4 @@ function Contact() {
     </>
   );
 }
-export default Contact;
+export default Contacto;

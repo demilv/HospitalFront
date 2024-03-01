@@ -5,12 +5,13 @@ import { dark } from './Context/darkContext'
 
 import Navbar from "./Navbar/Navbar"
 import Home from "./Home/Home"
-import Contact from "./Contact/Contact"
+import Contacto from "./Contacto/Contacto"
 import Footer from "./Footer/Footer"
 import Login from "./Login/Login"
 import Habitaciones from "./Habitaciones/Habitaciones";
 import Pacientes from "./Pacientes/Pacientes";
-import AddNew from './AddNew/AddNew';
+import AnadirNuevo from './AnadirNuevo/AnadirNuevo';
+import EnConstruccion from './EnConstruccion/EnConstruccion';
 
 function App() {
     const navigate = useNavigate();
@@ -46,11 +47,12 @@ function App() {
         <Navbar user={user} logoutUser={logoutUser} />    
         <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Contact" element={<Contact />} />
+        <Route path="/Contacto" element={<Contacto />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Habitaciones" element={<Habitaciones />} />
         <Route path="/Pacientes" element={<Pacientes />} />
-        <Route path="/AddNew" element={<AddNew />} />      
+        <Route path="/AnadirNuevo" element={<AnadirNuevo />} />      
+        <Route path="/EnConstruccion" element={<EnConstruccion />} />
         </Routes>
         <Footer></Footer>
       </div> 

@@ -1,0 +1,74 @@
+.contactTitle{
+  padding-top:2%;
+  padding-left: 20%;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+.contactFormContainer{
+  min-height: 750px;
+  box-shadow: #312d31 0 0 10px inset;
+  border-radius: 1em; 
+  margin-bottom: 3%;
+}
+
+.contactFormInputContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contactFormTextareaContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.contactFormInput{  
+  border-radius: 5em; 
+  width:1000px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+.contactFormTextarea{
+    width: 1000px;
+    min-width: 300px;
+    min-height: 200px;
+    height: 300px;
+    max-width: 1200px;
+    max-height: 500px;
+    resize: both;
+    overflow: auto;
+}
+
+.contactFormDivconfirm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.contactFormButton{
+  text-align: center;
+  border-radius: 1em;
+  border-style: none;  
+  background-color: #FFFFFF;  
+  box-shadow: #9915a4 0 -10px 5px inset;
+  box-sizing: border-box;
+  appearance: none; 
+  color: #000000;
+  font-size: 1.5rem;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  
+  padding: 1rem 1.3rem;
+  margin: 15px 0 60px;  
+  transition: all .3s;
+}
+
+.contactFormButton:hover {
+  background-color: #FFC229;
+  box-shadow: #FF6314 0 -6px 8px inset;
+  transform: scale(1.3);
+}

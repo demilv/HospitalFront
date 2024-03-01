@@ -19,25 +19,27 @@ const [rooms, setRooms] = useState([]);
 
   return (
     <>
-      <div class="wingBar">
-      <ul className="room-buttons">
-                    <li>
-                        <button classname="wingButton" value= "1" onClick={(ev) => setWing(ev.target.value)}> Ala 1 </button>
+    <div className="roomDiv">
+      <div className="wingBar">
+        <ul className="roomButtons">
+                    <li className="roomButtonsList">
+                        <button className="wingButton" value= "1" onClick={(ev) => setWing(ev.target.value)}> Ala 1 </button>
                     </li>
-                    <li>
-                        <button classname="wingButton" value= "2" onClick={(ev) => setWing(ev.target.value)}> Ala 2 </button>
+                    <li className="roomButtonsList">
+                        <button className="wingButton" value= "2" onClick={(ev) => setWing(ev.target.value)}> Ala 2 </button>
                     </li>
-                    <li>
-                        <button classname="wingButton" value= "3" onClick={(ev) => setWing(ev.target.value)}> Ala 3 </button>
+                    <li className="roomButtonsList">
+                        <button className="wingButton" value= "3" onClick={(ev) => setWing(ev.target.value)}> Ala 3 </button>
                     </li>
-                    <li>
-                        <button classname="wingButton" value= "4" onClick={(ev) => setWing(ev.target.value)}> Ala 4 </button>
+                    <li className="roomButtonsList">
+                        <button className="wingButton" value= "4" onClick={(ev) => setWing(ev.target.value)}> Ala 4 </button>
                     </li>
                 </ul>  
       </div>
-      <div>
+      <div className="roomResults">
         <AlaHabitacion rooms={rooms}></AlaHabitacion>
       </div>
+    </div>
     </>
   );
 }

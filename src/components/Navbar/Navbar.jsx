@@ -1,47 +1,44 @@
-import { Link } from "react-router-dom";
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 // import NavLogged from "./NavLogged"
 import "./Navbar.css";
 
 const NavBar = ({ user, logoutUser }) => {
 
 
-    return (        
-        <nav className="navbar">
-            <div className="header">
-                <h1 className="logo">
-                    <Link to="/">Hospital App</Link>
-                </h1>
-                <ul className="nav-links">
-                    <li>
-                        <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                        <Link to="/contact">Contact</Link>
-                    </li>
-                    <li>
-                        <Link to="/login">Login</Link>
-                    </li>
-                    <li>
-                        <Link to="/habitaciones">Habitaciones</Link>
-                    </li>
-                    <li>
-                        <Link to="/pacientes">Pacientes</Link>
-                    </li>
-                    <li>
-                        <Link to="/addnew">New</Link>
-                    </li>
-                </ul>    
+    return (
+        <Navbar bg="terciary" style={{ backgroundColor: "#90D5FD" }} expand="lg">
+          <Navbar.Brand className="navbarTitle">¡Saludos! Disfruta de nuestro programa</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto" variant="tabs">
+              <Nav.Item>
+                <Nav.Link as={Link} to="/" eventKey="/">Home</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link as={Link} to="/contacto" eventKey="/contacto">Contacto</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link as={Link} to="/login" eventKey="/login">Login</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link as={Link} to="/habitaciones" eventKey="/habitaciones">Habitaciones</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link as={Link} to="/pacientes" eventKey="/pacientes">Listado Pacientes</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link as={Link} to="/anadirNuevo" eventKey="/anadirNuevo">Nuevo Paciente</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link as={Link} to="/enConstruccion" eventKey="/enConstruccion">En Construcción</Nav.Link>
+              </Nav.Item>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+      );
 
-              {/* {user && user.role === "admin" ? <NavLogged /> : null} */}
-   
-
-                {/*<h1>
-                    {user ? <button onClick={logoutUser}>Logout</button> : <Link to="/login">Login</Link>}
-                </h1> */}
-                
-            </div>
-        </nav>
-    )
+     
 }
 
 export default NavBar;
