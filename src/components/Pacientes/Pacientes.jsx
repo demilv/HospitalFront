@@ -23,21 +23,36 @@ function Pacientes() {
         setHabitaciones(resJson2);
       };
 
-      const handleDelete = async (id) => {
+      const handleDelete = async (paciente) => {
+
+        const habitacionId = paciente.habitacion;
+        console.log (habitacionId)
+
         try {
-          console.log(id)
+          console.log(paciente)
           const res = await fetch(
-            `https://hospital-back.vercel.app/pacientesBase/delPaciente/${id}`, { method: 'DELETE' }
+            `https://hospital-back.vercel.app/pacientesBase/delPaciente/${paciente._id}`, { method: 'DELETE' }
+            );
+
+            const res2 = await fetch(
+              `https://hospital-back.vercel.app/habitacionesBase/upRoom/${habitacionId}`,
+              {
+                method: 'PUT',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ ocupada: false }),
+              }
             );
       
-          if (res.ok) {
+          if (res.ok && res2.ok) {
             setEliminado((prevEliminado) => !prevEliminado);
-            console.log(`El paciente con ID ${id} ha sido eliminado correctamente.`);
+            console.log(`El paciente con ID ${paciente._id} ha sido eliminado correctamente.`);
           } else {
-            console.error(`No se pudo eliminar al paciente con ID ${id}.`);
+            console.error(`No se pudo eliminar al paciente con ID ${paciente._id}.`);
           }
         } catch (error) {
-          console.error(`Ocurrió un problema al intentar eliminar al paciente con ID ${id}.`, error);
+          console.error(`Ocurrió un problema al intentar eliminar al paciente con ID ${paciente._id}.`, error);
         }
       };
 

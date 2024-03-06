@@ -19,7 +19,7 @@ function Paciente({ ingresados, onDelete, onUpdate }) {
             </ul>
             <ul className="datosButton">           
                 <Button variant="contained" sx={{ marginBottom: '20px' }} color="secondary" size="medium" className="datosButtonUp" onClick={() => onUpdate(paciente._id)}>Update</Button>
-                <Button variant="contained" color="error" onClick={() => onDelete(paciente._id)}>Delete</Button>
+                <Button variant="contained" color="error" onClick={() => onDelete(paciente)}>Delete</Button>
             </ul>
         </div>)
     }
