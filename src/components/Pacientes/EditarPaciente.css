@@ -19,20 +19,52 @@
 }
 
 .editLi{    
-  display: flex;
+  display: block;
+  flex-direction: column;
   justify-content: space-between; 
   align-items: center;
+  width:750px;
+  height:110px;
   margin-top: 20px; 
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   border: 6px solid #341d1d;
-  padding:10px;
+  padding:20px;
+  padding-right: 100px;
   border-radius: 28px;
 }
 
-.editLi label{
+.editLiDescripcion{
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  width:750px;
+  height:110px;
+  margin-top: 20px; 
+  margin-bottom: 20px;
+  border: 6px solid #341d1d;
+  padding:20px;
+  padding-right: 100px;
+  border-radius: 28px;
+}
+
+.editLiDivTextarea{
+  padding-bottom: 20px;
+}
+
+.editLi label, .editLiDescripcion label{
   margin-right: 25px;
   font-size: 26px;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.editLiTextarea{
+  resize:none;
+  width: 400px;
+  min-height: 55px;
+}
+
+.warning{
+  margin-left: 30px;
 }
 
 .editButtonGreen, .editButtonRed{

@@ -132,6 +132,7 @@ const isFormValid = () => {
       <h2>Editar tu Paciente</h2>
       <ul className='editUl'>
         <li className='editLi'>
+          <div>
           <label>Su Nombre Actual: </label>
           <input
             type="text"
@@ -139,11 +140,13 @@ const isFormValid = () => {
             onChange={(e) => handleChange('nombre', e.target.value)}
             maxLength={50}
           />
+          </div>
           {editedPatient.nombre !== "" && !patterns.nombre.test(editedPatient.nombre) && (
             <span style={{ color: "orange" }}>{messages.nombre}</span>
           )}
         </li>
         <li className='editLi'>
+        <div>
           <label>Teléfono:</label>
           <input
             type="text"
@@ -152,25 +155,31 @@ const isFormValid = () => {
             maxLength={9}
             minLength={8}
           />
+          </div>
           {editedPatient.telefono !== "" && !patterns.telefono.test(editedPatient.telefono) && (
             <span style={{ color: "orange" }}>{messages.telefono}</span>
           )}
         </li>
-        <li className='editLi'>
+        <li className='editLiDescripcion'>
+        <div className='editLiDivTextarea'>
           <label>Descripción/Prueba:</label>
-          <input
-            type="text"
+        </div>
+        <div>
+          <textarea
+          className='editLiTextarea'
             value={editedPatient.descripcion}
             onChange={(e) => handleChange('descripcion', e.target.value)}
             maxLength={50}
           />
+        </div>
           {editedPatient.descripcion !== "" && !patterns.descripcion.test(editedPatient.descripcion) && (
             <span style={{ color: "orange" }}>{messages.descripcion}</span>
           )}
         </li>
         <li className='editLi'>
-          <label>¿Desea cambiar la habitación?</label>
+          
           <div>
+          <label>¿Desea cambiar la habitación?</label>
             <input
               type="radio"
               id="yes"

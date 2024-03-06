@@ -23,11 +23,12 @@
   .pacienteFormTextarea{
     margin-top: 35px;
     margin-bottom: 70px;
-    width: 700px;
+    width: 300px;
     min-width: 300px;
-    min-height: 200px;
-    max-width: 1200px;
-    max-height: 500px;
+    height: 100px;
+    min-height: 100px;
+    max-width: 500px;
+    max-height: 200px;
     resize: both;
     overflow: auto;
   }
