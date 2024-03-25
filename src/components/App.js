@@ -1,7 +1,8 @@
+
 import '../styles/App.css';
 import { useEffect, useState } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
-import { dark } from './Context/darkContext'
+import { dark } from './Context/darkContext';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import Navbar from "./Navbar/Navbar"
 import Home from "./Home/Home"
@@ -15,47 +16,50 @@ import EnConstruccion from './EnConstruccion/EnConstruccion';
 
 function App() {
     const navigate = useNavigate();
-    // primer estado del user null, aun no se  define
     const [user, setUser] = useState(null);
-    const [loginError, setLoginError] = useState('');
-    const loginUser = (formData, prevRoute) => {
-    /*  const existsUser = usuarios.find(
-        (user) =>
-          user.email === formData.email && user.password === formData.password
-      );
-      if (existsUser) {
-        // segundo estado del user, informacion del usuario logado
-        setUser(existsUser);
-        setLoginError('');
-        // en caso que el login se haya realizado a partir de una ruta protegida a la cual no se tenia acceso, un vez has iniciado sesion devuelvete a la ruta protegida y sino ve al home
-        navigate(prevRoute || '/');
-      } else {
-        // tercer estado del user false, ha tratado de hacer login y no pudo
-        setUser(false);
-        setLoginError('Usuario o contraseña incorrecta');
-      }
-      */
-    };
-    
+    const [isDark, setIsDark] = useState(false);
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (token) {
+            setUser(token);
+        }
+    }, []);
+
     const logoutUser = () => {
-      setUser(null);
-      navigate('/');
+        console.log(user)
+        setUser(null);
+        navigate('/');
     };
 
+    const handleDark = () => {
+        setIsDark(!isDark); 
+    };
+
+    const updateUser = (loggedIn) => {
+      setUser(loggedIn);
+  };
+
     return (
-        <div /*className={`App-header ${background ? 'black' : 'orange'}`}*/>
-        <Navbar user={user} logoutUser={logoutUser} />    
-        <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Contacto" element={<Contacto />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/Habitaciones" element={<Habitaciones />} />
-        <Route path="/Pacientes" element={<Pacientes />} />
-        <Route path="/AnadirNuevo" element={<AnadirNuevo />} />      
-        <Route path="/EnConstruccion" element={<EnConstruccion />} />
-        </Routes>
-        <Footer></Footer>
-      </div> 
+        <dark.Provider value={{isDark, handleDark}}>
+            <div className={`mode ${isDark ? 'dark' : 'light'}`}>
+                <Navbar  logoutUser={logoutUser} />   
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/contacto" element={<Contacto />} />
+                    <Route path="/login" element={<Login updateUser={updateUser} />} />
+                    {user && (
+                        <>
+                            <Route path="/habitaciones" element={<Habitaciones />} />
+                            <Route path="/pacientes" element={<Pacientes />} />
+                            <Route path="/anadirNuevo" element={<AnadirNuevo />} />
+                        </>
+                    )}
+                    <Route path="/enConstruccion" element={<EnConstruccion />} />
+                </Routes>
+                <Footer handleDark={handleDark}></Footer>
+            </div> 
+        </dark.Provider>
     );
 }
 export default App;

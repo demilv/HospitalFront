@@ -1,0 +1,37 @@
+.divLogin{
+    display: flex;
+    justify-content: center;
+    width: 1900px;
+    height: 800px;
+}
+
+.divLoginForm{
+
+    margin-top: 300px;
+    width:400px;
+    height: 200px;
+    margin-bottom: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: #312d31 0 0 10px inset;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;   
+}
+
+.divLoginEnviar{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    position: relative;
+    background: #0653a4;
+    box-shadow: #55ab0e 0 10px 5px inset;
+    color: #e3b313;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    border-radius: 10%;
+    letter-spacing: 0.1rem;
+    padding: 1rem ;
+    transition: 0.4s;
+}

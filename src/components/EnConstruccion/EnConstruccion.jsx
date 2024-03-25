@@ -22,6 +22,8 @@ function EnConstruccion()
                     <li> Corregidos algunos problemas por los cuales las habitaciones de paciente no se quedaban libres al eliminar los pacientes o cambiarlos a nuevas habitaciones</li>
                     <h4>Version 1.11</h4>
                     <li> Añadido enlace a Github y algunas modificaciones del CSS</li>
+                    <h4>Version 1.2</h4>
+                    <li> Añadido Modo oscuro y un login con rutas protegidas (Existen varios usuarios, puedes usar el nombre de usuario Usus1 con la contraseña 123123)</li>
                     </ul>
                 </div>
             </div>
