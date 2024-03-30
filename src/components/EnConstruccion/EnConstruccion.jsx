@@ -22,6 +22,8 @@ function EnConstruccion()
                     <li> Añadido enlace a Github y algunas modificaciones del CSS</li>
                     <h4>Version 1.2</h4>
                     <li> Añadido Modo oscuro y un login con rutas protegidas (Existen varios usuarios, puedes usar el nombre de usuario Usus1 con la contraseña 123123)</li>
+                    <h4>Version 1.21</h4>
+                    <li> Arreglados errores con los patrones de mensajes en la edicion de pacientes en la parte de telefono asi como un error a la hora de asignar las habitaciones. Modificado patron para permitir acentos en los nombres. Añadidos mensajes para ayudar y guiarte en el Login.</li>
                     </ul>
                 </div>
             </div>

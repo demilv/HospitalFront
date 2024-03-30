@@ -22,6 +22,7 @@ function EditarPaciente({ paciente, onCancel, habitacion, onUpdate }) {
     setEditedPatient((prev) => ({ ...prev, habitacionOriginal: paciente.habitacion }));
   }, [paciente.habitacion]);
 
+
   const handleChange = (field, value) => {
     setEditedPatient((prev) => ({ ...prev, [field]: value }));
   };
@@ -45,6 +46,7 @@ function EditarPaciente({ paciente, onCancel, habitacion, onUpdate }) {
         
         setHabitacionCambiada(true);
     } else {
+        setEditedPatient(prev => ({...prev, habitacion: prev.habitacionOriginal }));
         setHabitacionCambiada(false);
     }
 };
@@ -57,13 +59,14 @@ const messages = {
 };
 
 const patterns = {
-  nombre: /^[a-z ,.'-]+$/i,
+  nombre: /^[a-záéíóú ,.'-]+$/i,
   telefono: /^[0-9]{8,9}$/,
   descripcion: /^.{0,50}$/,
 };
 
 const isFormValid = () => {
-  const telefonoValido = patterns.telefono.test(editedPatient.telefono) && editedPatient.telefono.length >= 8 && editedPatient.telefono.length <= 9;
+  const telefonoPrueba = editedPatient.telefono.toString()
+  const telefonoValido = patterns.telefono.test(telefonoPrueba) && telefonoPrueba.length >= 8 && telefonoPrueba.length <= 9;
   return (
       editedPatient.nombre.trim() !== "" &&
       editedPatient.telefono.toString().trim() !== "" &&
@@ -78,10 +81,7 @@ const isFormValid = () => {
 
 
   const handleAceptarCambios = async () => {
-
-    console.log(paciente)
-    delete editedPatient.habitacionOriginal;
-    console.log(editedPatient)
+   
     if (!isFormValid()) {
       console.log("Algo no funciona en el formulario.");
       return;
@@ -90,10 +90,13 @@ const isFormValid = () => {
     try {
 
       let res2;
+      let res3;
+      console.log(editedPatient)
       if (habitacionCambiada === true)
       {
+        delete editedPatient.habitacionOriginal;
         res2 = await fetch(
-          `https://hospital-back.vercel.app/habitacionesBase/upRoom/${paciente.habitacion}`,
+          `https://hospital-back.vercel.app/habitacionesBase/upRoom/${paciente.habitacion[0]}`,
           {
             method: 'PUT',
             headers: {
@@ -101,7 +104,24 @@ const isFormValid = () => {
             },
             body: JSON.stringify({ocupada:false}),
           });
-      } 
+
+        res3 = await fetch(
+          `https://hospital-back.vercel.app/habitacionesBase/upRoom/${editedPatient.habitacion[0]}`,
+          {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ocupada:true}),
+          }
+        )
+      }
+      /*else{
+        setEditedPatient((prev) => ({ ...prev, habitacion : prev.habitacionOriginal }));
+        delete editedPatient.habitacionOriginal;
+      }*/ 
+
+      console.log(editedPatient)
 
       const res = await fetch(
         `https://hospital-back.vercel.app/pacientesBase/upPaciente/${paciente._id}`,
@@ -113,7 +133,7 @@ const isFormValid = () => {
           body: JSON.stringify(editedPatient),
         });       
            
-        if (res.ok && (!habitacionCambiada || res2.ok))  {
+        if (res.ok && (!habitacionCambiada || res2.ok || res3.ok))  {
         console.log('Cambios aceptados correctamente.');
         onCancel(); 
         onUpdate();

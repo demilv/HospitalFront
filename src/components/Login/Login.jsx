@@ -4,7 +4,8 @@ import "./Login.css";
 
 function Login({ updateUser }) {
     const navigate = useNavigate();
-
+    const [error, setError] = useState(null);
+    const [hint, setHint] = useState("Puedes encontrar un usuario de prueba en la seccion En construccion")
     const [usuario, setUsuario] = useState({
         nombreusuario : '',
         password : ''
@@ -46,6 +47,8 @@ function Login({ updateUser }) {
                 navigate("/habitaciones");
             } else {
                 console.error(`No pudo loguearse.`);
+                setError('Alguno de los datos introducidos es incorrecto pero puedes encontrar un usuario de prueba en la seccion En construccion')
+                setHint(null)
             }
         } catch (error) {
             console.error(`Ocurrió un problema al intentar hacer login.`, error);
@@ -85,6 +88,8 @@ function Login({ updateUser }) {
                 >
                     Enviar
                 </button>
+                <span className="divMensajeAyuda" style={{ visibility: error ? "visible" : "hidden", color: "red"}}>{error}</span>
+                <span className="divMensajeAyuda" style={{ visibility: hint ? "visible" : "hidden", color: "green"}}>{hint}</span>
             </form>
         </div>
         );
