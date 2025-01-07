@@ -11,10 +11,10 @@ function Contacto() {
         console.log("enviando email");
         emailjs
         .sendForm(
-          "service_rkmpoja",
-          "template_wupc8ft",
+          process.env.REACT_APP_EMAILJS_SERVICE_ID,
+          process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
           form.current,
-          "xPRp0jnjm0Umc_tl0"
+          process.env.REACT_APP_EMAILJS_USER_ID
         )
         .then(
           (result) => {
