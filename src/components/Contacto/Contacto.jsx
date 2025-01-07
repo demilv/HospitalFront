@@ -106,7 +106,7 @@ function Contacto() {
           <div className="contactFormTextareaContainer">
             <textarea
               className="contactFormTextarea"
-              name="mensaje"
+              name="message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               rows="20"
